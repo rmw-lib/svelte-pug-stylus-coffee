@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "@rmw/coffee-label-patch": "^0.0.10",
-    "@rmw/qiniu": "^0.0.23",
+    "@rmw/qiniu": "^0.0.24",
     "@rmw/rollup-plugin-coffee": "^0.1.21",
     "@rmw/svelte-preprocess": "^4.10.4",
     "@rmw/walk": "^0.0.6",

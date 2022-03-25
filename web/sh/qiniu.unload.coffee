@@ -117,7 +117,7 @@ upload_public = (name)=>
   hash = await sha3(fp)
   pre = NameHash.get(name)
   if pre and Buffer.compare(hash,pre) == 0
-    continue
+    return
   await upload name
   await NameHash.put(name,hash)
   return
@@ -138,9 +138,9 @@ await do =>
     )
     await HashName.put name, id
 
-  PUBLIC.remove index_htm
+  PUBLIC.delete index_htm
   for name from PUBLIC
-    await upload_public(name)
+    await upload_public name
   await upload_public index_htm
   return
 

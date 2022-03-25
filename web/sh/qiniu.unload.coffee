@@ -112,6 +112,16 @@ await do =>
   await writeFileSync PATH_ID, JSON.stringify ID
   return
 
+upload_public = (name)=>
+  fp = join DIST, name
+  hash = await sha3(fp)
+  pre = NameHash.get(name)
+  if pre and Buffer.compare(hash,pre) == 0
+    continue
+  await upload name
+  await NameHash.put(name,hash)
+  return
+
 await do =>
   for [name, id] from TO_UPLOAD
     ext = extname(name)
@@ -128,14 +138,10 @@ await do =>
     )
     await HashName.put name, id
 
+  PUBLIC.remove index_htm
   for name from PUBLIC
-    fp = join DIST, name
-    hash = await sha3(fp)
-    pre = NameHash.get(name)
-    if pre and Buffer.compare(hash,pre) == 0
-      continue
-    await upload name
-    await NameHash.put(name,hash)
+    await upload_public(name)
+  await upload_public index_htm
   return
 
 DB.close()

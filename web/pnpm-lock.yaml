@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@rmw/coffee-label-patch': ^0.0.10
-  '@rmw/qiniu': ^0.0.22
+  '@rmw/qiniu': ^0.0.23
   '@rmw/rollup-plugin-coffee': ^0.1.21
   '@rmw/svelte-preprocess': ^4.10.4
   '@rmw/walk': ^0.0.6
@@ -23,7 +23,7 @@ specifiers:
 
 devDependencies:
   '@rmw/coffee-label-patch': 0.0.10
-  '@rmw/qiniu': 0.0.22
+  '@rmw/qiniu': 0.0.23
   '@rmw/rollup-plugin-coffee': 0.1.21
   '@rmw/svelte-preprocess': 4.10.4_3e9e45d6a5d0234e2a8c0269bf06b3a1
   '@rmw/walk': 0.0.6
@@ -175,8 +175,8 @@ packages:
     resolution: {integrity: sha512-dQ+Afhv3E5A63pdqdZE9nL/VHAuO9bFpupRYYDNSJ20keqZ3uGr6kNxhV9eLtzMcBrKjh3IyMcbYlQ4aQGnKXw==}
     dev: true
 
-  /@rmw/qiniu/0.0.22:
-    resolution: {integrity: sha512-aofgKxbt8LZjPOAqZwHAn6VETd3F25g7CeEzgsBu4Nr/JrSxRQzY302JGsIZzTQencWPUgmtWEwYpWjXKppt6g==}
+  /@rmw/qiniu/0.0.23:
+    resolution: {integrity: sha512-cu6F9CfmqTOp+R3tZTrz4k1CUK470E7zxqbwUOwxMF2+iLnLtyz26K4Vuis4VRKNR32agpBerBu4VFOZUeaw9Q==}
     dependencies:
       '@rmw/pool': 0.0.18
       '@rmw/walk': 0.0.6

@@ -15,6 +15,7 @@
     "@rmw/coffee-loader": "^0.0.4",
     "@rmw/console": "^0.0.20",
     "@rmw/md-include": "^0.4.8",
+    "@rmw/qiniu": "^0.0.24",
     "@rmw/thisdir": "^0.0.2",
     "coffeescript": "^2.6.1",
     "concurrently": "^7.0.0",

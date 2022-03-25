@@ -8,7 +8,11 @@ specifiers:
   '@rmw/thisdir': ^0.0.2
   coffeescript: ^2.6.1
   concurrently: ^7.0.0
+  init: ^0.1.2
   pug: ^3.0.2
+
+dependencies:
+  init: 0.1.2
 
 devDependencies:
   '@rmw/coffee-loader': 0.0.4
@@ -341,6 +345,11 @@ packages:
     hasBin: true
     dev: true
 
+  /daemon/1.1.0:
+    resolution: {integrity: sha1-bFECyB2wvoVvyQCPwsk1s5iGSug=}
+    engines: {node: '>= 0.8.0'}
+    dev: false
+
   /data-uri-to-buffer/3.0.1:
     resolution: {integrity: sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==}
     engines: {node: '>= 6'}
@@ -655,6 +664,13 @@ packages:
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
     dev: true
+
+  /init/0.1.2:
+    resolution: {integrity: sha1-mIKsFScHvMun/iIHyN+AUIdcFQQ=}
+    engines: {node: '>=0.4.7'}
+    dependencies:
+      daemon: 1.1.0
+    dev: false
 
   /ip/1.1.5:
     resolution: {integrity: sha1-vd7XARQpCCjAoDnnLvJfWq7ENUo=}

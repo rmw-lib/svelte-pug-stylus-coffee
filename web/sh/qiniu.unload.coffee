@@ -1,5 +1,5 @@
 #!/usr/bin/env coffee
-
+import '@rmw/console/global'
 import thisdir from '@rmw/thisdir'
 import {Readable} from 'stream'
 import mime from 'mime-types'
@@ -58,23 +58,23 @@ HTTP = 'https://'+SITE+'/'
 
 NAME_ID = []
 
-EXT = new Set 'js css html'.split ' '
+EXT = new Set 'js css htm html'.split ' '
 
 stream = (file)=>
-  console.log file
-  ext = extname file
-  if EXT.has ext
-    s = new Readable()
-    txt = readFileSync file,'utf8'
-    for [name, id] from NAME_ID
-      txt = txt.split(name).join('.'+BASE.encode(id))
-    if ~file.indexOf('htm')
+  =>
+    console.log file
+    ext = extname file
+    if EXT.has ext
+      s = new Readable()
+      txt = readFileSync file,'utf8'
+      for [name, id] from NAME_ID
+        txt = txt.split(name).join('.'+BASE.encode(id))
       console.log txt
-    s.push(txt)
-    s.push(null)
-    return s
-  else
-    return createReadStream(file)
+      s.push(txt)
+      s.push(null)
+      return s
+    else
+      return createReadStream(file)
 
 upload = (name, read=stream,extra={})=>
   console.log HTTP+name
@@ -116,6 +116,7 @@ upload_public = (name)=>
   fp = join DIST, name
   hash = await sha3(fp)
   pre = NameHash.get(name)
+  console.log name, pre and Buffer.compare(hash,pre) == 0
   if pre and Buffer.compare(hash,pre) == 0
     return
   await upload name
@@ -132,16 +133,19 @@ await do =>
         extra.mimeType = mimeType
     await upload(
       '.'+BASE.encode(id)
-      =>
-        stream join(DIST,name)
+      stream join(DIST,name)
       extra
     )
     await HashName.put name, id
 
   PUBLIC.delete index_htm
+
   for name from PUBLIC
     await upload_public name
-  await upload_public index_htm
+  await upload(
+    index_htm
+    stream join(DIST,index_htm)
+  )
   return
 
 DB.close()

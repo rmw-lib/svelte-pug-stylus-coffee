@@ -3,13 +3,12 @@ import '~/styl/init.styl'
 import logo from ':/svg/logo.svg'
 import Counter from './lib/Counter.svelte'
 
-x = 1
+x = 4
 
-:$ y = x - 2
+:$ y = x + z
 
 :$
-  z = y * x
-  z += 5
+  z = x - 2
 
 :out
   for i from [1,2,3]

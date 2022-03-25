@@ -1,0 +1,29 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@rmw/coffee-label-patch": "^0.0.10",
+    "@rmw/qiniu": "^0.0.21",
+    "@rmw/rollup-plugin-coffee": "^0.1.21",
+    "@rmw/svelte-preprocess": "^4.10.4",
+    "@rmw/walk": "^0.0.6",
+    "@sergeymakinen/vite-plugin-html-minimize": "^1.0.1",
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.40",
+    "base-p": "^2.0.0",
+    "eslint-plugin-coffee": "^0.1.15",
+    "eslint-plugin-svelte3": "^3.4.1",
+    "lmdbx": "^0.5.0",
+    "lodash-es": "^4.17.21",
+    "mime-types": "^2.1.35",
+    "msgpackr": "^1.5.5",
+    "stylus": "^0.57.0",
+    "svelte": "^3.46.4",
+    "svgo": "^2.8.0",
+    "vite": "^2.8.6",
+    "z85": "^0.0.2"
+  }
+}

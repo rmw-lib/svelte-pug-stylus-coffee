@@ -68,6 +68,8 @@ stream = (file)=>
     txt = readFileSync file,'utf8'
     for [name, id] from NAME_ID
       txt = txt.split(name).join('.'+BASE.encode(id))
+    if ~file.indexOf('htm')
+      console.log txt
     s.push(txt)
     s.push(null)
     return s

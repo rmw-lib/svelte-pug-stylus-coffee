@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@rmw/coffee-label-patch': ^0.0.10
-  '@rmw/qiniu': ^0.0.21
+  '@rmw/qiniu': ^0.0.22
   '@rmw/rollup-plugin-coffee': ^0.1.21
   '@rmw/svelte-preprocess': ^4.10.4
   '@rmw/walk': ^0.0.6
@@ -23,7 +23,7 @@ specifiers:
 
 devDependencies:
   '@rmw/coffee-label-patch': 0.0.10
-  '@rmw/qiniu': 0.0.21
+  '@rmw/qiniu': 0.0.22
   '@rmw/rollup-plugin-coffee': 0.1.21
   '@rmw/svelte-preprocess': 4.10.4_3e9e45d6a5d0234e2a8c0269bf06b3a1
   '@rmw/walk': 0.0.6
@@ -175,11 +175,12 @@ packages:
     resolution: {integrity: sha512-dQ+Afhv3E5A63pdqdZE9nL/VHAuO9bFpupRYYDNSJ20keqZ3uGr6kNxhV9eLtzMcBrKjh3IyMcbYlQ4aQGnKXw==}
     dev: true
 
-  /@rmw/qiniu/0.0.21:
-    resolution: {integrity: sha512-o9mU6Izu9Bl726tYmv5Jo9P4tO15QD5epI+F0zx61j6nqSNvHK4TRLrJjaiUkt0oefuV3eZxxnkm+IRmoVNpJw==}
+  /@rmw/qiniu/0.0.22:
+    resolution: {integrity: sha512-aofgKxbt8LZjPOAqZwHAn6VETd3F25g7CeEzgsBu4Nr/JrSxRQzY302JGsIZzTQencWPUgmtWEwYpWjXKppt6g==}
     dependencies:
       '@rmw/pool': 0.0.18
       '@rmw/walk': 0.0.6
+      await-sleep: 0.0.1
       js-yaml: 4.1.0
       qiniu: 7.4.0
     transitivePeerDependencies:
@@ -433,6 +434,10 @@ packages:
     resolution: {integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==}
     engines: {node: '>= 4.5.0'}
     hasBin: true
+    dev: true
+
+  /await-sleep/0.0.1:
+    resolution: {integrity: sha512-H3X3eAxwGpeNIk/yvFOs8g7500Q1YvzrxjSC9TNgLGtjrMFxPwhDdcT34QNs2iGWpZ+5WKkMJdjDoYs+Sw+TaA==}
     dev: true
 
   /axe-core/3.5.6:

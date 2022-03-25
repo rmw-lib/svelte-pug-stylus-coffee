@@ -33,12 +33,12 @@ extname = (file)=>
 
 sha3 = (path) =>
   h = createHash('sha3-256')
-  stream = createReadStream(path)
-  stream.on 'data', h.update.bind(h)
+  s = createReadStream(path)
+  s.on 'data', h.update.bind(h)
 
   new Promise (resolve, reject) =>
-    stream.on 'error', reject
-    stream.on 'end', => resolve h.digest()
+    s.on 'error', reject
+    s.on 'end', => resolve h.digest()
     return
 
 HashName = DB = open join PWD,'.uploaded'
@@ -61,20 +61,18 @@ NAME_ID = []
 EXT = new Set 'js css htm html'.split ' '
 
 stream = (file)=>
-  =>
-    console.log file
-    ext = extname file
-    if EXT.has ext
-      s = new Readable()
-      txt = readFileSync file,'utf8'
-      for [name, id] from NAME_ID
-        txt = txt.split(name).join('.'+BASE.encode(id))
-      console.log txt
-      s.push(txt)
-      s.push(null)
-      return s
-    else
-      return createReadStream(file)
+  ext = extname file
+  if EXT.has ext
+    s = new Readable()
+    txt = readFileSync file,'utf8'
+    for [name, id] from NAME_ID
+      txt = txt.split(name).join('.'+BASE.encode(id))
+    console.log txt
+    s.push(txt)
+    s.push(null)
+    return s
+  else
+    return createReadStream(file)
 
 upload = (name, read=stream,extra={})=>
   console.log HTTP+name
@@ -133,7 +131,7 @@ await do =>
         extra.mimeType = mimeType
     await upload(
       '.'+BASE.encode(id)
-      stream join(DIST,name)
+      stream.bind join(DIST,name)
       extra
     )
     await HashName.put name, id
@@ -144,7 +142,7 @@ await do =>
     await upload_public name
   await upload(
     index_htm
-    stream join(DIST,index_htm)
+    stream.bind join(DIST,index_htm)
   )
   return
 

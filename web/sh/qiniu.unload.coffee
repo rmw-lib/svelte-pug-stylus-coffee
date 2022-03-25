@@ -131,7 +131,7 @@ await do =>
         extra.mimeType = mimeType
     await upload(
       '.'+BASE.encode(id)
-      stream.bind join(DIST,name)
+      => stream join(DIST,name)
       extra
     )
     await HashName.put name, id
@@ -142,7 +142,7 @@ await do =>
     await upload_public name
   await upload(
     index_htm
-    stream.bind join(DIST,index_htm)
+    => stream join(DIST,index_htm)
   )
   return
 

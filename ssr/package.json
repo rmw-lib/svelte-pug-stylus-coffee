@@ -1,8 +1,8 @@
 {
   "type": "module",
-  "devDependencies": {
+  "dependencies": {
     "koa": "^2.13.4",
     "koa-static": "^5.0.0",
-    "prerender": "^5.19.0"
+    "puppeteer": "^13.5.1"
   }
 }

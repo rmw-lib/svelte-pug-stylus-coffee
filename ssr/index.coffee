@@ -1,5 +1,6 @@
 #!/usr/bin/env coffee
 
+import chrome from './chrome'
 import thisdir from '@rmw/thisdir'
 import static_serve from 'koa-static'
 import Koa from 'koa'
@@ -19,10 +20,10 @@ koa.use(static_serve join(ROOT,'web/dist'), index:'index.htm')
       return
   )
 
-console.log "http://#{address}:#{port}"
+HTTP = "http://#{address}:#{port}"
 
-###
-import prerender from 'prerender'
-server = prerender()
-server.start()
-###
+console.log HTTP
+
+console.log await chrome.get(HTTP)
+
+process.exit()

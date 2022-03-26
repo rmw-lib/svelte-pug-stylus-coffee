@@ -8,7 +8,7 @@ import {SITE,QINIU_BUCKET} from '../config/qiniu'
 import Qiniu from '@rmw/qiniu'
 import {join,dirname} from 'path'
 import {walkRel} from '@rmw/walk'
-import {createReadStream,statSync,readFileSync,writeFileSync,renameSync} from 'fs'
+import {createReadStream,statSync,readFileSync,writeFileSync} from 'fs'
 import { open } from 'lmdbx'
 import Base from 'base-p'
 BASE = new Base('/-_~()*0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
@@ -19,7 +19,6 @@ DIST = join ROOT, 'dist'
 PATH_ID = join PWD,'.id'
 
 index_htm = 'index.htm'
-renameSync join(DIST,index_htm+'l'),join(DIST,index_htm)
 
 try
   ID = JSON.parse readFileSync(PATH_ID,'utf8')

@@ -1,5 +1,6 @@
 #!/usr/bin/env coffee
 
+import fsline from '@rmw/fsline'
 import chrome from './chrome'
 import thisdir from '@rmw/thisdir'
 import static_serve from 'koa-static'
@@ -31,12 +32,9 @@ HTTP = "http://#{address}:#{port}"
 
 console.log HTTP
 
-URL_LI = [
-  ''
-]
-
 do =>
-  for url from URL_LI
+  for await url from fsline(join(PWD,'url.txt'))
+    console.log '→',url
     html = await chrome.get(HTTP+url)
     if not html
       continue

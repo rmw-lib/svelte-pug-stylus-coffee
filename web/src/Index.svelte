@@ -24,7 +24,7 @@ click = =>
 
 <template lang="pug">
 main
-  // img(src="{logo}" alt="logo")
+  img(src="{logo}" alt="logo")
   button(on:click="{click}")
     +if('x%2') if x%2
       +else() else

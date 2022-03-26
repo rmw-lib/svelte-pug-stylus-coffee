@@ -16,9 +16,10 @@ ROOT = dirname thisdir(import.meta)
 SRC = join ROOT,'src'
 PRODUCTION = process.env.NODE_ENV == 'production'
 
+INDEX_HTML = join SRC,'index.html'
 writeFileSync(
-  join(ROOT, 'index.html'),
-  pug.compileFile(join(SRC, 'index.pug'))({
+  INDEX_HTML
+  pug.compileFile(join SRC, 'index.pug')({
   })
 )
 host = '0.0.0.0' or env.VITE_HOST
@@ -61,7 +62,11 @@ config = {
   esbuild:
     legalComments: 'none'
     treeShaking: true
+  root: SRC
   build:
+    rollupOptions:
+      input:
+        index:INDEX_HTML
     target:['edge90','chrome90','firefox90','safari15']
     assetsDir: '/'
     emptyOutDir: true

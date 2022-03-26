@@ -1,3 +1,8 @@
 {
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
+    "prerender": "^5.19.0"
+  }
 }

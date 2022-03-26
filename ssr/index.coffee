@@ -5,8 +5,15 @@ import thisdir from '@rmw/thisdir'
 import static_serve from 'koa-static'
 import Koa from 'koa'
 import {dirname,join} from 'path'
+import fs from 'fs'
 
-ROOT = dirname thisdir import.meta
+PWD = thisdir import.meta
+ROOT = dirname PWD
+HTM = join PWD, 'htm'
+
+mkdir = (fp)->
+  fs.mkdirSync(dirname(fp), { recursive: true })
+  return
 
 koa = new Koa()
 
@@ -24,6 +31,18 @@ HTTP = "http://#{address}:#{port}"
 
 console.log HTTP
 
-console.log await chrome.get(HTTP)
+URL_LI = [
+  ''
+]
 
-process.exit()
+do =>
+  for url from URL_LI
+    html = await chrome.get(HTTP+url)
+    if not html
+      continue
+    fp = join HTM, (url or 'index')+'.htm'
+    await mkdir fp
+    fs.writeFileSync fp,html
+
+  process.exit()
+  return

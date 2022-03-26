@@ -9,16 +9,18 @@ import pug from 'pug'
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import thisdir from '@rmw/thisdir'
-import { writeFileSync } from 'fs'
+import { writeFileSync,renameSync } from 'fs'
 import import_pug from './plugin/pug.js'
 
 ROOT = dirname thisdir(import.meta)
+DIST = join ROOT,'dist'
 SRC = join ROOT,'src'
 PRODUCTION = process.env.NODE_ENV == 'production'
 
-INDEX_HTML = join SRC,'index.html'
+INDEX_HTML = 'index.html'
+SRC_INDEX_HTML = join SRC,INDEX_HTML
 writeFileSync(
-  INDEX_HTML
+  SRC_INDEX_HTML
   pug.compileFile(join SRC, 'index.pug')({
   })
 )
@@ -64,9 +66,10 @@ config = {
     treeShaking: true
   root: SRC
   build:
+    outDir: DIST
     rollupOptions:
       input:
-        index:INDEX_HTML
+        index:SRC_INDEX_HTML
     target:['edge90','chrome90','firefox90','safari15']
     assetsDir: '/'
     emptyOutDir: true
@@ -75,11 +78,19 @@ config = {
 if PRODUCTION
   FILENAME = '[name].[hash].[ext]'
   JSNAME = '[name].[hash].js'
+  minimize = htmlMinimize({
+    filter: /\.html?$/,
+  })
+  {generateBundle} = minimize
+  minimize.generateBundle = (_,bundle)=>
+    for i from Object.values bundle
+      if INDEX_HTML == i.fileName
+        i.fileName = INDEX_HTML[...-1]
+    generateBundle(_,bundle)
+
   config = merge config,{
     plugins:[
-      htmlMinimize({
-        filter: /\.html?$/,
-      })
+      minimize
     ]
     base: '/'
     build:

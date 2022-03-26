@@ -9,7 +9,7 @@ ROOT = dirname thisdir import.meta
 
 koa = new Koa()
 
-koa.use(static_serve join ROOT,'web/dist')
+koa.use(static_serve join(ROOT,'web/dist'), index:'index.htm')
 
 {address,port} = await new Promise (resolve)=>
   koa.listen(0,'127.0.0.1').on(

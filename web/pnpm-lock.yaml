@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@rmw/coffee-label-patch': ^0.0.10
+  '@rmw/coffee-label-patch': ^0.0.12
   '@rmw/rollup-plugin-coffee': ^0.1.21
   '@rmw/svelte-preprocess': ^4.10.5
   '@rmw/walk': ^0.0.6
@@ -21,9 +21,9 @@ specifiers:
   z85: ^0.0.2
 
 devDependencies:
-  '@rmw/coffee-label-patch': 0.0.10
+  '@rmw/coffee-label-patch': 0.0.12
   '@rmw/rollup-plugin-coffee': 0.1.21
-  '@rmw/svelte-preprocess': 4.10.5_3e9e45d6a5d0234e2a8c0269bf06b3a1
+  '@rmw/svelte-preprocess': 4.10.5_c752931d4546f0aa718d6c66331a10c9
   '@rmw/walk': 0.0.6
   '@sergeymakinen/vite-plugin-html-minimize': 1.0.1_vite@2.8.6
   '@sveltejs/vite-plugin-svelte': 1.0.0-next.40_svelte@3.46.4+vite@2.8.6
@@ -165,15 +165,15 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@rmw/coffee-label-patch/0.0.10:
-    resolution: {integrity: sha512-ulRFkggvELzgZdP9HyavleOxqGg4dSjTKoCe/8+GQGV55A68tYD750wA1bNM/HBN1DnPP/36fgO1KF0EXkgayA==}
+  /@rmw/coffee-label-patch/0.0.12:
+    resolution: {integrity: sha512-LOkfmW2Oc2Q0edNzfP2qAWViq/4p5qMhqh/0kLUy/y2X0xdoewoVafIz3NGmWcXAkwdgi9XgZ0cplYWQwTKOxg==}
     dev: true
 
   /@rmw/rollup-plugin-coffee/0.1.21:
     resolution: {integrity: sha512-X1lxHpGs4iUtKn9Gyx+bzG3lWXWaFZ8XrxcSA7ajhVTB+tuAjPg0jSDByaad5qXw/u7VD/qTUeRXx66HRk8WNg==}
     dev: true
 
-  /@rmw/svelte-preprocess/4.10.5_3e9e45d6a5d0234e2a8c0269bf06b3a1:
+  /@rmw/svelte-preprocess/4.10.5_c752931d4546f0aa718d6c66331a10c9:
     resolution: {integrity: sha512-jevePo8b/Vk5JMU2QcdSd4ljda94dGqQrNmXAYlHUXDtY5mpIIJjKxlWpUUK5KazGXVwlIHTLMU9ZxvYKl5Gjg==}
     engines: {node: '>= 9.11.2'}
     requiresBuild: true
@@ -215,7 +215,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@rmw/coffee-label-patch': 0.0.10
+      '@rmw/coffee-label-patch': 0.0.12
       '@types/pug': 2.0.6
       '@types/sass': 1.43.1
       detect-indent: 6.1.0

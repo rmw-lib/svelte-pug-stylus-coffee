@@ -37,6 +37,7 @@ config = {
       preprocess: [
         sveltePreprocess(
           coffeescript: {
+            label:true
             sourceMap: true
           }
           stylus: true

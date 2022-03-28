@@ -1,7 +1,5 @@
 import { join,dirname } from 'path'
 import sveltePreprocess from '@rmw/svelte-preprocess'
-import htmlMinimizeMod from '@sergeymakinen/vite-plugin-html-minimize'
-htmlMinimize = htmlMinimizeMod.default
 import { merge } from 'lodash-es'
 import vitePluginStylusAlias from './plugin/vite-plugin-stylus-alias.mjs'
 import coffee from '@rmw/rollup-plugin-coffee'
@@ -79,19 +77,10 @@ config = {
 if PRODUCTION
   FILENAME = '[name].[hash].[ext]'
   JSNAME = '[name].[hash].js'
-  minimize = htmlMinimize({
-    filter: /\.html?$/,
-  })
-  {generateBundle} = minimize
-  minimize.generateBundle = (_,bundle)=>
-    for i from Object.values bundle
-      if INDEX_HTML == i.fileName
-        i.fileName = INDEX_HTML[...-1]
-    generateBundle(_,bundle)
 
   config = merge config,{
     plugins:[
-      minimize
+      (await import('./plugin/mini_html.js')).default
     ]
     base: '/'
     build:

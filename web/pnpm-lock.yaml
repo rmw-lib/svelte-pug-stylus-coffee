@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@prettier/plugin-pug': ^1.20.0
   '@rmw/coffee-label-patch': ^0.0.12
   '@rmw/rollup-plugin-coffee': ^0.1.21
   '@rmw/svelte-preprocess': ^4.10.5
@@ -14,6 +15,7 @@ specifiers:
   lodash-es: ^4.17.21
   mime-types: ^2.1.35
   msgpackr: ^1.5.5
+  prettier: ^2.6.1
   stylus: ^0.57.0
   svelte: ^3.46.4
   svgo: ^2.8.0
@@ -21,6 +23,7 @@ specifiers:
   z85: ^0.0.2
 
 devDependencies:
+  '@prettier/plugin-pug': 1.20.0_prettier@2.6.1
   '@rmw/coffee-label-patch': 0.0.12
   '@rmw/rollup-plugin-coffee': 0.1.21
   '@rmw/svelte-preprocess': 4.10.5_c752931d4546f0aa718d6c66331a10c9
@@ -34,6 +37,7 @@ devDependencies:
   lodash-es: 4.17.21
   mime-types: 2.1.35
   msgpackr: 1.5.5
+  prettier: 2.6.1
   stylus: 0.57.0
   svelte: 3.46.4
   svgo: 2.8.0
@@ -163,6 +167,15 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
+    dev: true
+
+  /@prettier/plugin-pug/1.20.0_prettier@2.6.1:
+    resolution: {integrity: sha512-NT5gVO/SOVNKOPYyLttWSzryO3prVRrw5X8N7NFOTlkDwkOoRXSvGAsUa8OrPxOiV21/vkKTjUic2kbCYw6lig==}
+    peerDependencies:
+      prettier: ^2.3.0
+    dependencies:
+      prettier: 2.6.1
+      pug-lexer: 5.0.1
     dev: true
 
   /@rmw/coffee-label-patch/0.0.12:
@@ -296,6 +309,12 @@ packages:
     resolution: {integrity: sha512-BPdoIt1lfJ6B7rw35ncdwBZrAssjcwzI5LByIrYs+tpXlj/CAkuVdRsgZDdP4lq5EjyWzwxZCqAoFyHKFwp32g==}
     dependencies:
       '@types/node': 17.0.23
+    dev: true
+
+  /acorn/7.4.1:
+    resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
     dev: true
 
   /ansi-regex/2.1.1:
@@ -501,6 +520,12 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
+    dev: true
+
+  /character-parser/2.2.0:
+    resolution: {integrity: sha1-x84o821LzZdE5f/CxfzeHHMmH8A=}
+    dependencies:
+      is-regex: 1.1.4
     dev: true
 
   /clean-css/4.2.4:
@@ -1323,6 +1348,13 @@ packages:
       has-tostringtag: 1.0.0
     dev: true
 
+  /is-expression/4.0.0:
+    resolution: {integrity: sha512-zMIXX63sxzG3XrkHkrAPvm/OVZVSCPNkwMHU8oTX7/U3AL78I0QXCEICXUM13BIa8TYGZ68PiTKfQz3yaTNr4A==}
+    dependencies:
+      acorn: 7.4.1
+      object-assign: 4.1.1
+    dev: true
+
   /is-extglob/2.1.1:
     resolution: {integrity: sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=}
     engines: {node: '>=0.10.0'}
@@ -1699,12 +1731,30 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /prettier/2.6.1:
+    resolution: {integrity: sha512-8UVbTBYGwN37Bs9LERmxCPjdvPxlEowx2urIL6urHzdb3SDq4B/Z6xLFCblrSnE4iKWcS6ziJ3aOYrc1kz/E2A==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
+    dev: true
+
+  /pug-error/2.0.0:
+    resolution: {integrity: sha512-sjiUsi9M4RAGHktC1drQfCr5C5eriu24Lfbt4s+7SykztEOwVZtbFk1RRq0tzLxcMxMYTBR+zMQaG07J/btayQ==}
+    dev: true
+
+  /pug-lexer/5.0.1:
+    resolution: {integrity: sha512-0I6C62+keXlZPZkOJeVam9aBLVP2EnbeDw3An+k0/QlqdwH6rv8284nko14Na7c0TtqtogfWXcRoFE4O4Ff20w==}
+    dependencies:
+      character-parser: 2.2.0
+      is-expression: 4.0.0
+      pug-error: 2.0.0
     dev: true
 
   /react-is/16.13.1:

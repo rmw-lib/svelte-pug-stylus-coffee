@@ -6,6 +6,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@prettier/plugin-pug": "^1.20.0",
     "@rmw/coffee-label-patch": "^0.0.12",
     "@rmw/rollup-plugin-coffee": "^0.1.21",
     "@rmw/svelte-preprocess": "^4.10.5",
@@ -19,6 +20,7 @@
     "lodash-es": "^4.17.21",
     "mime-types": "^2.1.35",
     "msgpackr": "^1.5.5",
+    "prettier": "^2.6.1",
     "stylus": "^0.57.0",
     "svelte": "^3.46.4",
     "svgo": "^2.8.0",
